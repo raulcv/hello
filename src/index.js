@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(require("./routes/index"));
 app.use('/api/bears', require('./routes/bear'));
 
-
 //starting server
 app.listen(app.get("port"), () => {
   console.log(`server listeting on port ${app.get("port")}`);
