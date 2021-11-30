@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "The coco",
+        "birthday": "01/01/2021",
+        "kindof": "Perezoso",
+        "owner": "Helios",
+        "beauthy": 9.45 
+    },
+    {
+        "id": 2,
+        "name": "Ydelina",
+        "birthday": "01/01/2019",
+        "kindof": "Panda",
+        "owner": "Mr. beast 600",
+        "beauthy": 9.925
+    }
+]
