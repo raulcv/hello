@@ -1,18 +1,9 @@
-const express = require("express");
-const app = express();
-const morgan = require("morgan");
-
-//settings
-app.set("port", process.env.PORT || 8080);
-app.set("json spaces", 2);
-
-//Middleware
-app.use(morgan());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+require('./config/database.js');
+const app = require('./app')
 
 app.use(require("./routes/index"));
-app.use('/api/bears', require('./routes/bear'));
+app.use('/api/bears', require('./routes/bear')); 
+app.use('/api/users', require('./routes/user'));
 
 //starting server
 app.listen(app.get("port"), () => {
