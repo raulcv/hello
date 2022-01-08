@@ -66,7 +66,7 @@ router.get("/:id", isAuthenticated, async (req, res) => {
   try {
     let id = req.params.id;
     const user = await User.findById(id);
-    console.log(user);
+    // console.log(user);
     res.status(201).json(user);
   } catch (err) {
     console.log(err);
@@ -75,7 +75,7 @@ router.get("/:id", isAuthenticated, async (req, res) => {
 router.get("/", isAuthenticated, async (req, res) => {
   try {
     const users = await User.find();
-    console.log(users);
+    // console.log(users);
     res.status(201).json(users);
   } catch (err) {
     console.log(err);
