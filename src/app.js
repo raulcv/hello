@@ -4,10 +4,10 @@ const morgan = require("morgan");
 const path = require('path')
 // require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 // require('dotenv').config();
-
-const API_PORT = process.env.API_PORT;
+const serverConfig = require('../src/config/serverConfig.js')
+const APP_PORT = serverConfig.app.port;
 //settings
-app.set("port", API_PORT || 8080);
+app.set("port", APP_PORT);
 app.set("json spaces", 2);
 
 //Middleware
