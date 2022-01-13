@@ -3,13 +3,14 @@ const router = Router();
 const _ = require("underscore");
 
 const data = require("../bears.json");
+const isAuthenticated  = require("../helpers/auth");
 
 //get all bears
-router.get("/", (req, res) => {
+router.get("/", isAuthenticated, (req, res) => {
   res.json(data);
 });
 //Get by id
-router.get("/:id", (req, res) => {
+router.get("/:id", isAuthenticated, (req, res) => {
   let { id } = req.params;
   let idNumber = parseInt(id);
   const dato = data.filter((x) => x.id === idNumber);
@@ -17,7 +18,7 @@ router.get("/:id", (req, res) => {
   res.json(dato);
 });
 //add new bear
-router.post("/", (req, res) => {
+router.post("/",isAuthenticated, (req, res) => {
   const { name, birthday, kindof, owner, beauthy } = req.body;
   if (name && birthday && kindof && owner && beauthy) {
     let id = data.length + 1;
@@ -29,7 +30,7 @@ router.post("/", (req, res) => {
 });
 
 //udpdate a bear
-router.put("/:id", (req, res) => {
+router.put("/:id", isAuthenticated, (req, res) => {
   const { id } = req.params;
   const { name, birthday, kindof, owner, beauthy } = req.body;
   if (name && birthday && kindof && owner && beauthy) {
@@ -49,7 +50,7 @@ router.put("/:id", (req, res) => {
 });
 
 //delete a bear
-router.delete("/:id", (req, res) => {
+router.delete("/:id", isAuthenticated, (req, res) => {
   const { id } = req.params;
   _.each(data, (bear, i) => {
     if (bear.id == id) {
