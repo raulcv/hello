@@ -1,9 +1,8 @@
-const app = require('./app')
+var express = require('express')
+var app = express()
 
-app.use(require("./routes/index"));
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
 
-//starting server
-app.listen(app.get("port"), () => {
-  console.log(`server listeting on port ${app.get("port")}`);
-});
-
+app.listen(3000)
