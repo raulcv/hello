@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require('path')
 
-app.set("port", API_PORT || 8080);
+app.set("port", 8080);
 app.set("json spaces", 2);
 
 //Middleware
